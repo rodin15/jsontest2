@@ -218,19 +218,8 @@
                     "type": "connectedDataset"
                 },
                 "fields": [
-                    "Compliance_Status__c",
-                    "Identify_Engagement_Score__c",
-                    "Monitor_Engagement_Score__c",
-                    "engagio__EngagementMinutesLast30Days__c",
-                    "engagio__IntentMinutesLast30Days__c",
-                    "Notary_Engagement_Score__c",
-                    "Account_Classification_for_Engagement__c",
-                    "Analyzer_Engagement_Score__c",
-                    "CLM_Engagement_Score__c",
-                    "Gen_Engagement_Score__c",
-                    "Insight_Engagement_Score__c",
-                    "eSignature_Engagement_Score__c",
-                    "Customer_Engagement_Tier__c",
+                    "Web_Renewal_Date__c",
+                    "DS_AccountPlanName__c",
                     "Id",
                     "IsDeleted",
                     "Name",
@@ -261,12 +250,17 @@
                     "MDR_Account_Status__c",
                     "Report_Number_of_Opportunities__c",
                     "DocuSign_Account_Type__c",
+                    "Identify_Engagement_Score__c",
                     "Identify_Fit_Score__c",
+                    "Monitor_Engagement_Score__c",
                     "Account_Score__c",
+                    "engagio__EngagementMinutesLast30Days__c",
                     "Affiliate_Promo_Code__c",
                     "Annual_Contract_Value_ACV__c",
                     "engagio__HighIntentKeywords_longtext__c",
+                    "engagio__IntentMinutesLast30Days__c",
                     "Monitor_Fit_Score__c",
+                    "Notary_Engagement_Score__c",
                     "Number_Open_Opportunities__c",
                     "Notary_Fit_Score__c",
                     "Number_of_Open_Opportunities__c",
@@ -302,20 +296,22 @@
                     "Sign_Incumbent__c",
                     "CLM_Product_Score__c",
                     "Gen_Product_Score__c",
+                    "Analyzer_Engagement_Score__c",
                     "Analyzer_Fit_Score__c",
+                    "CLM_Engagement_Score__c",
+                    "Gen_Engagement_Score__c",
+                    "Insight_Engagement_Score__c",
                     "Insight_Fit_Score__c",
+                    "eSignature_Engagement_Score__c",
                     "eSignature_Fit_Score__c",
                     "Territory_Country__c",
                     "Top_Target_Account__c",
                     "Current_MRR__c",
                     "GTM_Group__c",
                     "Territory_Region__c",
+                    "Account_Classification_for_Engagement__c",
                     "Identify_Propensity_Score__c",
-                    "eSign_Propensity_Score__c",
-                    "IAM_Plan_Recommended__c",
-                    "IAM_Recommendation_Feedback__c",
-                    "IAM_Plan_Fit__c",
-                    "IAM_Recommendation_Reason__c"
+                    "eSign_Propensity_Score__c"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -2066,7 +2062,7 @@
                 "fields": [
                     {
                         "defaultValue": "",
-                        "formulaExpression": "case \r\nwhen   \"CustomerHealth.ESIGN_HEALTHSCORE_BAND\"  = 'Green' then '1.Green'\r\nwhen \"CustomerHealth.ESIGN_HEALTHSCORE_BAND\" = 'Yellow' then '2.Yellow'\r\nwhen \"CustomerHealth.ESIGN_HEALTHSCORE_BAND\" = 'Orange' then '3.Orange'\r\nwhen \"CustomerHealth.ESIGN_HEALTHSCORE_BAND\" = 'Red' then '4.Red'\r\nwhen \"CustomerHealth.ESIGN_HEALTHSCORE_BAND\" = 'Gray' then '5.Gray'\r\nwhen \"CustomerHealth.ESIGN_HEALTHSCORE_BAND\" is null then '6.NA'\r\nelse '6.NA'\r\nend ",
+                        "formulaExpression": "case \r\nwhen   \"CustomerHealth.HEALTH_BAND\"  = 'Green' then '1.Green'\r\nwhen \"CustomerHealth.HEALTH_BAND\" = 'Yellow' then '2.Yellow'\r\nwhen \"CustomerHealth.HEALTH_BAND\" = 'Orange' then '3.Orange'\r\nwhen \"CustomerHealth.HEALTH_BAND\" = 'Red' then '4.Red'\r\nwhen \"CustomerHealth.HEALTH_BAND\" = 'Gray' then '5.Gray'\r\nwhen \"CustomerHealth.HEALTH_BAND\" is null then '6.NA'\r\nelse '6.NA'\r\nend ",
                         "label": "CSM_HEALTH_BAND",
                         "name": "CSM_HEALTH_BAND",
                         "precision": 255,
@@ -2104,7 +2100,7 @@
                 "fields": [
                     {
                         "defaultValue": "",
-                        "formulaExpression": "''",
+                        "formulaExpression": "case \r\nwhen \"CustomerHealth.CLM_HEALTHSCORE_BAND\" = 'Green' then '1.Green'\r\nwhen \"CustomerHealth.CLM_HEALTHSCORE_BAND\" = 'Yellow' then '2.Yellow'\r\nwhen \"CustomerHealth.CLM_HEALTHSCORE_BAND\" = 'Red' then '3.Red'\r\nwhen \"CustomerHealth.CLM_HEALTHSCORE_BAND\" is null then '4.NA' \r\nelse '4.NA'\r\nend ",
                         "label": "CSM_CLM_HealthScoreBand",
                         "name": "CSM_CLM_HealthScoreBand",
                         "precision": 255,
@@ -2308,9 +2304,7 @@
                     "GNMRR_of_Renewal__c",
                     "Current_MRR__c",
                     "Identify_Propensity_Score__c",
-                    "eSign_Propensity_Score__c",
-                    "IAM_Plan_Fit__c",
-                    "IAM_Recommendation_Feedback__c"
+                    "eSign_Propensity_Score__c"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -2644,11 +2638,17 @@
                     "type": "analyticsDataset"
                 },
                 "fields": [
+                    "HEALTH_BAND",
+                    "CLM_HEALTHSCORE_ConditionalFormatting",
+                    "CLM_HEALTHSCORE",
                     "ESIGN_HEALTHSCORE_BAND",
                     "SNAP_SHOT_DATE",
                     "SFDC_Account_Id",
-                    "ESIGN_HEALTHSCORE_ConditionalFormatting",
-                    "ESIGN_HEALTHSCORE"
+                    "CLM_HEALTHSCORE_BAND",
+                    "ESIGN_HEALTHSCORE",
+                    "HEALTH_SCORE",
+                    "CLM_HEALTHSCORE_Number",
+                    "ESIGN_HEALTHSCORE_ConditionalFormatting"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -2674,8 +2674,6 @@
                 "slice": {
                     "fields": [
                         "AccountUsage.Account_Id__c",
-                        "AccountUsage.Envelopes_Sent_in_Past_30_Days__c",
-                        "AccountUsage.Envelopes_Sent_in_Past_60_Days__c",
                         "AccountUsage.Envelopes_Sent_in_Past_7_Days__c",
                         "AccountUsage.Envelopes_Sent_in_Past_90_Days__c"
                     ],
@@ -2698,9 +2696,8 @@
                     "type": "connectedDataset"
                 },
                 "fields": [
-                    "Consumption_Performance_Percentage__c",
-                    "Consumption_Percentage__c",
-                    "Account_Id__c"
+                    "Account_Id__c",
+                    "Consumption_Performance_Percentage__c"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -2719,15 +2716,14 @@
                     "type": "connectedDataset"
                 },
                 "fields": [
-                    "FinanceGNCMRR__c",
+                    "FinanceGNCMRR_Probable__c",
                     "Id",
                     "AccountId",
                     "Name",
                     "StageName",
                     "CloseDate",
                     "IsClosed",
-                    "Order_Type__c",
-                    "FinanceGNCMRR_Probable__c"
+                    "Order_Type__c"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -2816,7 +2812,7 @@
             },
             "sources": [
                 "JOIN42",
-                "APPEND5"
+                "APPEND6"
             ]
         },
         "JOIN44": {
@@ -3530,12 +3526,6 @@
                         "label": "Unique Opportunity ID",
                         "name": "UNIQUE_Id",
                         "source": "Id"
-                    },
-                    {
-                        "action": "SUM",
-                        "label": "Sum of GNMRR",
-                        "name": "SUM_FinanceGNCMRR__c",
-                        "source": "FinanceGNCMRR__c"
                     }
                 ],
                 "groupings": [
@@ -3565,6 +3555,26 @@
             },
             "sources": [
                 "AGGREGATE3"
+            ]
+        },
+        "FORMULA75": {
+            "action": "formula",
+            "parameters": {
+                "expressionType": "SQL",
+                "fields": [
+                    {
+                        "defaultValue": "",
+                        "formulaExpression": "null",
+                        "label": "closed opps Id ",
+                        "name": "closedoppsId",
+                        "precision": 10,
+                        "scale": 0,
+                        "type": "NUMBER"
+                    }
+                ]
+            },
+            "sources": [
+                "FORMULA44"
             ]
         },
         "FORMULA45": {
@@ -3624,7 +3634,7 @@
                 ]
             },
             "sources": [
-                "FORMULA44",
+                "FORMULA75",
                 "FORMULA45"
             ]
         },
@@ -3643,9 +3653,6 @@
                     {
                         "bottom": "ExcludeFilter",
                         "top": "ExcludeFilter"
-                    },
-                    {
-                        "bottom": "SUM_FinanceGNCMRR__c"
                     }
                 ]
             },
@@ -4069,8 +4076,8 @@
             "action": "load",
             "parameters": {
                 "dataset": {
-                    "label": "Docusign of Keyword List",
-                    "name": "Docusign_of_Keyword_List",
+                    "label": "HighIntentKeywordList - Sheet1",
+                    "name": "HighIntentKeywordList_Sheet1",
                     "type": "analyticsDataset"
                 },
                 "fields": [
@@ -4228,7 +4235,7 @@
                 ]
             },
             "sources": [
-                "FORMULA0_copy0"
+                "FORMULA74"
             ]
         },
         "FORMULA52": {
@@ -4446,8 +4453,6 @@
                 "fields": [],
                 "slice": {
                     "fields": [
-                        "IAM_Recommendation_Feedback__c",
-                        "IAM_Plan_Fit__c",
                         "IsDeleted",
                         "Name",
                         "Type",
@@ -4556,6 +4561,25 @@
             },
             "sources": [
                 "DROP_FIELDS1_copy0"
+            ]
+        },
+        "FORMULA74": {
+            "action": "formula",
+            "parameters": {
+                "expressionType": "SQL",
+                "fields": [
+                    {
+                        "defaultValue": "",
+                        "formulaExpression": "case when \"key1.Product\"='Brand-IAM' then 'true' else 'false' end",
+                        "label": "Has Brand IAM",
+                        "name": "HasBrandIAM",
+                        "precision": 255,
+                        "type": "TEXT"
+                    }
+                ]
+            },
+            "sources": [
+                "FORMULA0_copy0"
             ]
         },
         "JOIN55": {
@@ -5242,6 +5266,41 @@
                 "EDIT_ATTRIBUTES62"
             ]
         },
+        "REPLACE20": {
+            "action": "formula",
+            "parameters": {
+                "expressionType": "SQL",
+                "fields": [
+                    {
+                        "formulaExpression": "coalesce(\"high1.HasBrandIAM\", null, 'false')",
+                        "label": "Has Brand IAM",
+                        "name": "high1.HasBrandIAM_replace",
+                        "precision": 255,
+                        "type": "TEXT"
+                    }
+                ]
+            },
+            "schema": {
+                "fields": [
+                    {
+                        "name": "high1.HasBrandIAM_replace",
+                        "newProperties": {
+                            "name": "high1.HasBrandIAM"
+                        }
+                    }
+                ],
+                "slice": {
+                    "fields": [
+                        "high1.HasBrandIAM"
+                    ],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "REPLACE13"
+            ]
+        },
         "LOAD_DATASET1_copy1": {
             "action": "load",
             "parameters": {
@@ -5527,7 +5586,7 @@
                 }
             },
             "sources": [
-                "REPLACE13",
+                "REPLACE20",
                 "FORMULA1_copy1"
             ]
         },
@@ -5645,28 +5704,6 @@
                 "REPLACE14"
             ]
         },
-        "LOAD_DATASET29": {
-            "action": "load",
-            "parameters": {
-                "dataset": {
-                    "connectionName": "SFDC_LOCAL_DAILY_SYNCs",
-                    "label": "Task",
-                    "sourceObjectName": "Task",
-                    "type": "connectedDataset"
-                },
-                "fields": [
-                    "Id",
-                    "WhatId",
-                    "OwnerId",
-                    "CreatedDate"
-                ],
-                "sampleDetails": {
-                    "sortBy": [],
-                    "type": "TopN"
-                }
-            },
-            "sources": []
-        },
         "LOAD_DATASET30": {
             "action": "load",
             "parameters": {
@@ -5687,31 +5724,6 @@
                 }
             },
             "sources": []
-        },
-        "FILTER15": {
-            "action": "filter",
-            "parameters": {
-                "filterExpressions": [
-                    {
-                        "field": "CreatedDate",
-                        "operands": [
-                            {
-                                "argument": -90,
-                                "type": "N_DAYS"
-                            },
-                            {
-                                "argument": 0,
-                                "type": "N_DAYS"
-                            }
-                        ],
-                        "operator": "IN_RANGE",
-                        "type": "DATETIME"
-                    }
-                ]
-            },
-            "sources": [
-                "LOAD_DATASET29"
-            ]
         },
         "FILTER16": {
             "action": "filter",
@@ -5774,7 +5786,7 @@
                 "grainExtractions": []
             },
             "sources": [
-                "FILTER15"
+                "FILTER15_copy0"
             ]
         },
         "AGGREGATE11": {
@@ -6001,7 +6013,7 @@
             },
             "sources": [
                 "JOIN70",
-                "FILTER15"
+                "FILTER15_copy0"
             ]
         },
         "LOAD_DATASET31": {
@@ -6035,11 +6047,13 @@
                     "type": "connectedDataset"
                 },
                 "fields": [
-                    "Prospecting_Contact_Status__c",
+                    "LastModifiedDate",
+                    "DS_Contact_Create_Date__c",
                     "Id",
                     "AccountId",
                     "Department",
-                    "CreatedDate"
+                    "CreatedDate",
+                    "Prospecting_Contact_Status__c"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -6066,6 +6080,8 @@
                 "fields": [],
                 "slice": {
                     "fields": [
+                        "LastModifiedDate",
+                        "DS_Contact_Create_Date__c",
                         "age"
                     ],
                     "ignoreMissingFields": true,
@@ -6098,7 +6114,7 @@
                 }
             },
             "sources": [
-                "JOIN79",
+                "JOIN80",
                 "JOIN73"
             ]
         },
@@ -6230,11 +6246,11 @@
                         "field": "CloseDate",
                         "operands": [
                             {
-                                "argument": -999,
+                                "argument": -2,
                                 "type": "N_YEARS"
                             },
                             {
-                                "argument": -2,
+                                "argument": -1,
                                 "type": "N_YEARS"
                             }
                         ],
@@ -6318,7 +6334,7 @@
                         "field": "CloseDate",
                         "operands": [
                             {
-                                "argument": -3,
+                                "argument": -999,
                                 "type": "N_YEARS"
                             },
                             {
@@ -6332,7 +6348,7 @@
                 ]
             },
             "sources": [
-                "FILTER17"
+                "LOAD_DATASET18"
             ]
         },
         "EXTRACT7": {
@@ -6400,7 +6416,7 @@
                     },
                     {
                         "bottom": "UNIQUE_Id",
-                        "top": "UNIQUE_Id"
+                        "top": "closedoppsId"
                     },
                     {
                         "bottom": "OpptysFilter"
@@ -6425,7 +6441,7 @@
                     },
                     {
                         "bottom": "UNIQUE_Id",
-                        "top": "UNIQUE_Id"
+                        "top": "closedoppsId"
                     },
                     {
                         "bottom": "SUM_FinanceGNCMRR_Probable__c",
@@ -6455,9 +6471,7 @@
                     "Account_Id__c",
                     "Consumption_Percentage__c",
                     "Consumption_Performance_Percentage__c",
-                    "Term_Allowance__c",
-                    "Envelopes_Sent_in_Past_30_Days__c",
-                    "Envelopes_Sent_in_Past_60_Days__c"
+                    "Term_Allowance__c"
                 ],
                 "sampleDetails": {
                     "sortBy": [],
@@ -6603,7 +6617,7 @@
                 ]
             },
             "sources": [
-                "FILTER19"
+                "LOAD_DATASET18"
             ]
         },
         "EXTRACT9": {
@@ -6665,7 +6679,7 @@
                     },
                     {
                         "bottom": "UNIQUE_Id",
-                        "top": "UNIQUE_Id"
+                        "top": "closedoppsId"
                     },
                     {
                         "bottom": "OpptysFilter1Year"
@@ -6687,7 +6701,7 @@
                     },
                     {
                         "bottom": "UNIQUE_Id",
-                        "top": "UNIQUE_Id"
+                        "top": "closedoppsId"
                     },
                     {
                         "bottom": "OpptysFilter1to2Year"
@@ -6780,6 +6794,13 @@
                 "fields": [],
                 "slice": {
                     "fields": [
+                        "Filter20.LastModifiedDate",
+                        "Filter20.DS_Contact_Create_Date__c",
+                        "Filter20.Id",
+                        "Filter20.AccountId",
+                        "Filter20.Department",
+                        "Filter20.CreatedDate",
+                        "Filter20.Prospecting_Contact_Status__c",
                         "Filter20.dedupe"
                     ],
                     "ignoreMissingFields": true,
@@ -7023,6 +7044,243 @@
             "sources": [
                 "FORMULA58_copy0"
             ]
+        },
+        "LOAD_DATASET29_copy0": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "connectionName": "SFDC_LOCAL_DAILY_SYNCs",
+                    "label": "Task",
+                    "sourceObjectName": "Task",
+                    "type": "connectedDataset"
+                },
+                "fields": [
+                    "Id",
+                    "WhatId",
+                    "OwnerId",
+                    "CreatedDate"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "FILTER15_copy0": {
+            "action": "filter",
+            "parameters": {
+                "filterExpressions": [
+                    {
+                        "field": "CreatedDate",
+                        "operands": [
+                            {
+                                "argument": -90,
+                                "type": "N_DAYS"
+                            },
+                            {
+                                "argument": 0,
+                                "type": "N_DAYS"
+                            }
+                        ],
+                        "operator": "IN_RANGE",
+                        "type": "DATETIME"
+                    },
+                    {
+                        "field": "User.Name",
+                        "operands": [
+                            "Eloqua"
+                        ],
+                        "operator": "DOES_NOT_CONTAIN",
+                        "type": "TEXT"
+                    }
+                ]
+            },
+            "sources": [
+                "JOIN79_copy0"
+            ]
+        },
+        "LOAD_DATASET34_copy0": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "connectionName": "SFDC_LOCAL_DAILY_SYNCs",
+                    "label": "User",
+                    "sourceObjectName": "User",
+                    "type": "connectedDataset"
+                },
+                "fields": [
+                    "Id",
+                    "Username",
+                    "LastName",
+                    "FirstName",
+                    "Name"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "JOIN79_copy0": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LOOKUP",
+                "leftKeys": [
+                    "OwnerId"
+                ],
+                "rightKeys": [
+                    "Id"
+                ],
+                "rightQualifier": "User"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "LOAD_DATASET29_copy0",
+                "LOAD_DATASET34_copy0"
+            ]
+        },
+        "JOIN80": {
+            "action": "join",
+            "parameters": {
+                "joinType": "MULTI_VALUE_LOOKUP",
+                "leftKeys": [
+                    "Id"
+                ],
+                "rightKeys": [
+                    "AccountId"
+                ],
+                "rightQualifier": "Contact"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "JOIN79",
+                "DROP_FIELDS12"
+            ]
+        },
+        "DROP_FIELDS12": {
+            "action": "schema",
+            "parameters": {
+                "fields": [],
+                "slice": {
+                    "fields": [
+                        "LastModifiedDate",
+                        "AccountId",
+                        "CreatedDate"
+                    ],
+                    "ignoreMissingFields": true,
+                    "mode": "SELECT"
+                }
+            },
+            "sources": [
+                "LOAD_DATASET32"
+            ]
+        },
+        "FILTER18_copy0": {
+            "action": "filter",
+            "parameters": {
+                "filterExpressions": [
+                    {
+                        "field": "IsClosed",
+                        "operands": [
+                            "false"
+                        ],
+                        "operator": "EQUAL",
+                        "type": "TEXT"
+                    }
+                ]
+            },
+            "sources": [
+                "LOAD_DATASET18"
+            ]
+        },
+        "EXTRACT7_copy0": {
+            "action": "extractGrains",
+            "parameters": {
+                "grainExtractions": []
+            },
+            "sources": [
+                "FILTER18_copy0"
+            ]
+        },
+        "AGGREGATE15_copy0": {
+            "action": "aggregate",
+            "parameters": {
+                "aggregations": [
+                    {
+                        "action": "UNIQUE",
+                        "label": "Unique Opportunity ID",
+                        "name": "UNIQUE_Id",
+                        "source": "Id"
+                    },
+                    {
+                        "action": "SUM",
+                        "label": "Sum of FinanceGNCMRR-Probable",
+                        "name": "SUM_FinanceGNCMRR_Probable__c",
+                        "source": "FinanceGNCMRR_Probable__c"
+                    }
+                ],
+                "groupings": [
+                    "AccountId"
+                ],
+                "nodeType": "STANDARD",
+                "pivots": []
+            },
+            "sources": [
+                "EXTRACT7_copy0"
+            ]
+        },
+        "FORMULA64_copy0": {
+            "action": "formula",
+            "parameters": {
+                "expressionType": "SQL",
+                "fields": [
+                    {
+                        "defaultValue": "",
+                        "formulaExpression": "'open opportunity'",
+                        "label": "open opps",
+                        "name": "openopps",
+                        "precision": 255,
+                        "type": "TEXT"
+                    }
+                ]
+            },
+            "sources": [
+                "AGGREGATE15_copy0"
+            ]
+        },
+        "APPEND6": {
+            "action": "appendV2",
+            "parameters": {
+                "fieldMappings": [
+                    {
+                        "bottom": "AccountId",
+                        "top": "AccountId"
+                    },
+                    {
+                        "bottom": "openopps"
+                    }
+                ]
+            },
+            "sources": [
+                "APPEND5",
+                "FORMULA64_copy0"
+            ]
         }
     },
     "ui": {
@@ -7064,8 +7322,8 @@
                 "label": "Accounts",
                 "description": "",
                 "type": "OUTPUT",
-                "top": 392.2,
-                "left": 8652.4
+                "top": 392.1,
+                "left": 7533
             },
             "LOAD_DATASET4": {
                 "label": "Account_Group__c",
@@ -7209,8 +7467,8 @@
                 "label": "Transform_CSM",
                 "description": "",
                 "type": "TRANSFORM",
-                "top": 392.2,
-                "left": 8372.4,
+                "top": 392.1,
+                "left": 7253,
                 "graph": {
                     "EDIT_ATTRIBUTES7": {
                         "label": "Edit Attributes"
@@ -8034,8 +8292,8 @@
             "LOAD_DATASET18": {
                 "label": "Opportunity",
                 "type": "LOAD_DATASET",
-                "top": 950.3,
-                "left": 2492,
+                "top": 952,
+                "left": 2631.9,
                 "parameters": {
                     "sampleSize": 2000
                 }
@@ -8059,22 +8317,22 @@
             "FILTER6": {
                 "label": "Filter 6",
                 "type": "FILTER",
-                "top": 811.8,
-                "left": 2632.1
+                "top": 671.7,
+                "left": 2632
             },
             "JOIN43": {
                 "label": "Join_RWoppty",
                 "description": "",
                 "type": "JOIN",
-                "top": 390.2,
+                "top": 391.9,
                 "left": 3752
             },
             "JOIN44": {
                 "label": "Join_TCV",
                 "description": "",
                 "type": "JOIN",
-                "top": 251.89999999999998,
-                "left": 3891.8
+                "top": 250.7,
+                "left": 3892
             },
             "LOAD_DATASET20": {
                 "label": "CPQ_Billing_Subscription__c",
@@ -8088,13 +8346,13 @@
             "FILTER7": {
                 "label": "Filter 7",
                 "type": "FILTER",
-                "top": 530.2,
+                "top": 390.7,
                 "left": 3892
             },
             "LOAD_DATASET21": {
                 "label": "Success_Plan__c",
                 "type": "LOAD_DATASET",
-                "top": 670.2,
+                "top": 812.6,
                 "left": 4032,
                 "parameters": {
                     "sampleSize": 2000
@@ -8104,7 +8362,7 @@
                 "label": "Join_SuccessPlan",
                 "description": "",
                 "type": "JOIN",
-                "top": 530.2,
+                "top": 392.2,
                 "left": 4032
             },
             "JOIN47": {
@@ -8143,7 +8401,7 @@
                 "label": "DATACLEANSING",
                 "description": "",
                 "type": "TRANSFORM",
-                "top": 250.2,
+                "top": 110.80000000000001,
                 "left": 3752,
                 "graph": {
                     "FORMULA19": {
@@ -8282,20 +8540,20 @@
             "FILTER11": {
                 "label": "Filter 11",
                 "type": "FILTER",
-                "top": 810.3,
-                "left": 2912
+                "top": 811.9,
+                "left": 2772
             },
             "FILTER12": {
                 "label": "Filter 12",
                 "type": "FILTER",
-                "top": 950.3,
-                "left": 3052
+                "top": 951.9,
+                "left": 2911.9
             },
             "AGGREGATE4": {
                 "label": "Aggregate 4",
                 "type": "AGGREGATE",
-                "top": 810.3,
-                "left": 3052,
+                "top": 811.9,
+                "left": 2912,
                 "graph": {
                     "EXTRACT2": null,
                     "AGGREGATE5": null
@@ -8310,8 +8568,8 @@
             "AGGREGATE6": {
                 "label": "Aggregate 6",
                 "type": "AGGREGATE",
-                "top": 950.3,
-                "left": 3192,
+                "top": 951.9,
+                "left": 3051.9,
                 "graph": {
                     "EXTRACT3": null,
                     "AGGREGATE7": null
@@ -8334,15 +8592,26 @@
                             "type": "BASE_FORMULA_UI"
                         },
                         "label": "ExcludeFilter"
+                    },
+                    "FORMULA75": {
+                        "parameters": {
+                            "type": "BASE_FORMULA_UI"
+                        },
+                        "label": "Formula"
                     }
                 },
-                "connectors": []
+                "connectors": [
+                    {
+                        "source": "FORMULA44",
+                        "target": "FORMULA75"
+                    }
+                ]
             },
             "TRANSFORM12": {
                 "label": "Transform 12",
                 "type": "TRANSFORM",
-                "top": 810.3,
-                "left": 3192,
+                "top": 811.9,
+                "left": 3052,
                 "graph": {
                     "FORMULA45": {
                         "parameters": {
@@ -8356,8 +8625,8 @@
             "TRANSFORM13": {
                 "label": "Transform 13",
                 "type": "TRANSFORM",
-                "top": 950.3,
-                "left": 3332,
+                "top": 951.9,
+                "left": 3192,
                 "graph": {
                     "FORMULA46": {
                         "parameters": {
@@ -8511,7 +8780,8 @@
                 ]
             },
             "LOAD_DATASET1_copy0": {
-                "label": "Docusign of Keyword List",
+                "label": "HighIntentKeywordList",
+                "description": "",
                 "type": "LOAD_DATASET",
                 "top": 1230.3,
                 "left": 672,
@@ -8642,13 +8912,15 @@
                     },
                     "DROP_FIELDS11": {
                         "label": "Drop Columns"
+                    },
+                    "FORMULA74": {
+                        "parameters": {
+                            "type": "BASE_FORMULA_UI"
+                        },
+                        "label": "Formula"
                     }
                 },
                 "connectors": [
-                    {
-                        "source": "FORMULA0_copy0",
-                        "target": "FORMULA51"
-                    },
                     {
                         "source": "FORMULA51",
                         "target": "FORMULA52"
@@ -8700,6 +8972,14 @@
                     {
                         "source": "DROP_FIELDS1_copy0",
                         "target": "DROP_FIELDS11"
+                    },
+                    {
+                        "source": "FORMULA74",
+                        "target": "FORMULA51"
+                    },
+                    {
+                        "source": "FORMULA0_copy0",
+                        "target": "FORMULA74"
                     }
                 ]
             },
@@ -8829,6 +9109,12 @@
                     },
                     "EDIT_ATTRIBUTES63": {
                         "label": "Edit Attributes"
+                    },
+                    "REPLACE20": {
+                        "parameters": {
+                            "type": "REPLACE_UI"
+                        },
+                        "label": "Replace"
                     }
                 },
                 "connectors": [
@@ -8927,14 +9213,18 @@
                     {
                         "source": "EDIT_ATTRIBUTES62",
                         "target": "EDIT_ATTRIBUTES63"
+                    },
+                    {
+                        "source": "REPLACE13",
+                        "target": "REPLACE20"
                     }
                 ]
             },
             "LOAD_DATASET1_copy1": {
                 "label": "Apttus_Config2__AssetLineItem__c",
                 "type": "LOAD_DATASET",
-                "top": 950.3,
-                "left": 6692,
+                "top": 951.8,
+                "left": 5432.9,
                 "parameters": {
                     "sampleSize": 2000
                 }
@@ -8942,14 +9232,14 @@
             "JOIN0_copy1": {
                 "label": "Join 0 Copy",
                 "type": "JOIN",
-                "top": 950.3,
-                "left": 6972
+                "top": 951.8,
+                "left": 5712.9
             },
             "LOAD_DATASET2_copy0": {
                 "label": "Product2",
                 "type": "LOAD_DATASET",
-                "top": 1090.3,
-                "left": 6832,
+                "top": 1091.8,
+                "left": 5572.9,
                 "parameters": {
                     "sampleSize": 2000
                 }
@@ -8957,28 +9247,28 @@
             "JOIN1_copy1": {
                 "label": "Join 1 Copy",
                 "type": "JOIN",
-                "top": 950.3,
-                "left": 6832
+                "top": 951.8,
+                "left": 5572.9
             },
             "FILTER0_copy1": {
                 "label": "Filter eSign Contract",
                 "description": "",
                 "type": "FILTER",
-                "top": 810.3,
-                "left": 7112
+                "top": 811.8,
+                "left": 5852.9
             },
             "FILTER1_copy1": {
                 "label": "Filter CLM Contract",
                 "description": "",
                 "type": "FILTER",
-                "top": 810.3,
-                "left": 6972
+                "top": 811.8,
+                "left": 5712.9
             },
             "AGGREGATE0_copy1": {
                 "label": "Aggregate 0 Copy",
                 "type": "AGGREGATE",
-                "top": 670.3,
-                "left": 7112,
+                "top": 671.8,
+                "left": 5852.9,
                 "graph": {
                     "EXTRACT0_copy1": null,
                     "AGGREGATE1_copy1": null
@@ -8993,8 +9283,8 @@
             "AGGREGATE2_copy0": {
                 "label": "Aggregate 2 Copy",
                 "type": "AGGREGATE",
-                "top": 670.3,
-                "left": 6972,
+                "top": 671.8,
+                "left": 5712.9,
                 "graph": {
                     "EXTRACT1_copy0": null,
                     "AGGREGATE3_copy0": null
@@ -9009,8 +9299,8 @@
             "TRANSFORM0_copy1": {
                 "label": "Transform 0 Copy",
                 "type": "TRANSFORM",
-                "top": 530.3,
-                "left": 7112,
+                "top": 531.8,
+                "left": 5852.9,
                 "graph": {
                     "FORMULA0_copy1": {
                         "parameters": {
@@ -9024,8 +9314,8 @@
             "TRANSFORM1_copy1": {
                 "label": "Transform 1 Copy1",
                 "type": "TRANSFORM",
-                "top": 530.3,
-                "left": 6972,
+                "top": 531.8,
+                "left": 5712.9,
                 "graph": {
                     "FORMULA1_copy1": {
                         "parameters": {
@@ -9051,20 +9341,20 @@
             "JOIN68": {
                 "label": "Join 68",
                 "type": "JOIN",
-                "top": 390.3,
-                "left": 6972
+                "top": 391.8,
+                "left": 5712.9
             },
             "JOIN69": {
                 "label": "Join 69",
                 "type": "JOIN",
-                "top": 390.3,
-                "left": 7112
+                "top": 391.8,
+                "left": 5852.9
             },
             "TRANSFORM16": {
                 "label": "Transform 16",
                 "type": "TRANSFORM",
-                "top": 390.3,
-                "left": 7252,
+                "top": 391.8,
+                "left": 5992.9,
                 "graph": {
                     "DROP_FIELDS9": {
                         "label": "Drop Columns"
@@ -9093,41 +9383,26 @@
                     }
                 ]
             },
-            "LOAD_DATASET29": {
-                "label": "Task",
-                "type": "LOAD_DATASET",
-                "top": 950.3,
-                "left": 7392,
-                "parameters": {
-                    "sampleSize": 2000
-                }
-            },
             "LOAD_DATASET30": {
                 "label": "Event",
                 "type": "LOAD_DATASET",
-                "top": 950.3,
-                "left": 7672,
+                "top": 951.8,
+                "left": 6412.9,
                 "parameters": {
                     "sampleSize": 2000
                 }
-            },
-            "FILTER15": {
-                "label": "Filter 15",
-                "type": "FILTER",
-                "top": 810.3,
-                "left": 7392
             },
             "FILTER16": {
                 "label": "Filter 16",
                 "type": "FILTER",
-                "top": 810.3,
-                "left": 7672
+                "top": 811.8,
+                "left": 6412.9
             },
             "AGGREGATE8": {
                 "label": "Aggregate 8",
                 "type": "AGGREGATE",
-                "top": 670.3,
-                "left": 7672,
+                "top": 671.8,
+                "left": 6412.9,
                 "graph": {
                     "EXTRACT4": null,
                     "AGGREGATE9": null
@@ -9142,8 +9417,8 @@
             "AGGREGATE10": {
                 "label": "Aggregate 10",
                 "type": "AGGREGATE",
-                "top": 670.3,
-                "left": 7392,
+                "top": 671.8,
+                "left": 6132.9,
                 "graph": {
                     "EXTRACT5": null,
                     "AGGREGATE11": null
@@ -9158,8 +9433,8 @@
             "TRANSFORM17": {
                 "label": "Transform 17",
                 "type": "TRANSFORM",
-                "top": 530.3,
-                "left": 7392,
+                "top": 531.8,
+                "left": 6132.9,
                 "graph": {
                     "FORMULA47": {
                         "parameters": {
@@ -9173,8 +9448,8 @@
             "TRANSFORM18": {
                 "label": "Transform 18",
                 "type": "TRANSFORM",
-                "top": 530.3,
-                "left": 7672,
+                "top": 531.8,
+                "left": 6412.9,
                 "graph": {
                     "FORMULA48": {
                         "parameters": {
@@ -9188,20 +9463,20 @@
             "JOIN70": {
                 "label": "Join 70",
                 "type": "JOIN",
-                "top": 390.3,
-                "left": 7392
+                "top": 391.8,
+                "left": 6132.9
             },
             "JOIN71": {
                 "label": "Join 71",
                 "type": "JOIN",
-                "top": 390.3,
-                "left": 7672
+                "top": 391.8,
+                "left": 6412.9
             },
             "TRANSFORM19": {
                 "label": "Transform 19",
                 "type": "TRANSFORM",
-                "top": 390.3,
-                "left": 7812,
+                "top": 391.8,
+                "left": 6552.9,
                 "graph": {
                     "DROP_FIELDS10": {
                         "label": "Drop Columns"
@@ -9233,14 +9508,14 @@
             "JOIN72": {
                 "label": "Join 72",
                 "type": "JOIN",
-                "top": 390.3,
-                "left": 7532
+                "top": 391.8,
+                "left": 6272.9
             },
             "LOAD_DATASET31": {
                 "label": "Usage_Statistics__c",
                 "type": "LOAD_DATASET",
-                "top": 1090.9,
-                "left": 8092.4,
+                "top": 1092.1,
+                "left": 6973,
                 "parameters": {
                     "sampleSize": 2000
                 }
@@ -9248,8 +9523,8 @@
             "LOAD_DATASET32": {
                 "label": "Contact",
                 "type": "LOAD_DATASET",
-                "top": 1092.4,
-                "left": 7813.1,
+                "top": 1091.8,
+                "left": 6552.9,
                 "parameters": {
                     "sampleSize": 2000
                 }
@@ -9257,20 +9532,20 @@
             "JOIN73": {
                 "label": "Join 73",
                 "type": "JOIN",
-                "top": 810.9,
-                "left": 8090.3
+                "top": 812.1,
+                "left": 6973
             },
             "JOIN74": {
                 "label": "Join 74",
                 "type": "JOIN",
                 "top": 392.1,
-                "left": 8092
+                "left": 6973
             },
             "TRANSFORM20": {
                 "label": "Transform 20",
                 "type": "TRANSFORM",
-                "top": 952.4,
-                "left": 7812.6,
+                "top": 951.8,
+                "left": 6552.9,
                 "graph": {
                     "FORMULA50": {
                         "parameters": {
@@ -9310,14 +9585,14 @@
             "FILTER17": {
                 "label": "Filter 17",
                 "type": "FILTER",
-                "top": 1090.3,
-                "left": 2632
+                "top": 1092,
+                "left": 3052
             },
             "AGGREGATE12": {
                 "label": "Aggregate 12",
                 "type": "AGGREGATE",
-                "top": 1090.3,
-                "left": 2772,
+                "top": 1092,
+                "left": 3192,
                 "graph": {
                     "EXTRACT6": null,
                     "AGGREGATE13": null
@@ -9332,8 +9607,8 @@
             "TRANSFORM21": {
                 "label": "Transform 21",
                 "type": "TRANSFORM",
-                "top": 1090.3,
-                "left": 2912,
+                "top": 1092.3,
+                "left": 3332,
                 "graph": {
                     "FORMULA63": {
                         "parameters": {
@@ -9347,14 +9622,14 @@
             "FILTER18": {
                 "label": "Filter 18",
                 "type": "FILTER",
-                "top": 1230.3,
-                "left": 2772
+                "top": 1232,
+                "left": 3191.7
             },
             "AGGREGATE14": {
                 "label": "Aggregate 14",
                 "type": "AGGREGATE",
-                "top": 1230.3,
-                "left": 2912,
+                "top": 1232,
+                "left": 3331.7,
                 "graph": {
                     "EXTRACT7": null,
                     "AGGREGATE15": null
@@ -9369,8 +9644,8 @@
             "TRANSFORM22": {
                 "label": "Transform 22",
                 "type": "TRANSFORM",
-                "top": 1230.3,
-                "left": 3052,
+                "top": 1232,
+                "left": 3471.7,
                 "graph": {
                     "FORMULA64": {
                         "parameters": {
@@ -9396,8 +9671,8 @@
             "LOAD_DATASET33": {
                 "label": "Account_Usage__c",
                 "type": "LOAD_DATASET",
-                "top": 532.2,
-                "left": 8232.4,
+                "top": 532.1,
+                "left": 7113,
                 "parameters": {
                     "sampleSize": 2000
                 }
@@ -9405,20 +9680,20 @@
             "JOIN78": {
                 "label": "Join 78",
                 "type": "JOIN",
-                "top": 392.2,
-                "left": 8232.4
+                "top": 392.1,
+                "left": 7113
             },
             "FILTER19": {
                 "label": "Filter 19",
                 "type": "FILTER",
-                "top": 1370.3,
-                "left": 2632
+                "top": 1372.1,
+                "left": 3331.9
             },
             "AGGREGATE16": {
                 "label": "Aggregate 16",
                 "type": "AGGREGATE",
-                "top": 1370.3,
-                "left": 2772,
+                "top": 1372.2,
+                "left": 3471.9,
                 "graph": {
                     "EXTRACT8": null,
                     "AGGREGATE17": null
@@ -9433,8 +9708,8 @@
             "TRANSFORM23": {
                 "label": "Transform 23",
                 "type": "TRANSFORM",
-                "top": 1370.3,
-                "left": 2912,
+                "top": 1372.2,
+                "left": 3611.9,
                 "graph": {
                     "FORMULA65": {
                         "parameters": {
@@ -9448,14 +9723,14 @@
             "FILTER20": {
                 "label": "Filter 20",
                 "type": "FILTER",
-                "top": 1510.3,
-                "left": 2772
+                "top": 1512.2,
+                "left": 3471.9
             },
             "AGGREGATE18": {
                 "label": "Aggregate 18",
                 "type": "AGGREGATE",
-                "top": 1510.3,
-                "left": 2912,
+                "top": 1512.2,
+                "left": 3611.9,
                 "graph": {
                     "EXTRACT9": null,
                     "AGGREGATE19": null
@@ -9470,8 +9745,8 @@
             "TRANSFORM24": {
                 "label": "Transform 24",
                 "type": "TRANSFORM",
-                "top": 1510.3,
-                "left": 3052,
+                "top": 1512.2,
+                "left": 3751.9,
                 "graph": {
                     "FORMULA66": {
                         "parameters": {
@@ -9491,20 +9766,20 @@
             "APPEND5": {
                 "label": "Append 5",
                 "type": "APPEND",
-                "top": 671.8,
+                "top": 671.7,
                 "left": 3752
             },
             "FILTER19_copy0_copy0": {
                 "label": "Filter 19 Copy",
                 "type": "FILTER",
-                "top": 812.4,
-                "left": 7812.4
+                "top": 811.8,
+                "left": 6552.9
             },
             "TRANSFORM23_copy0_copy0": {
                 "label": "Transform 23 Copy",
                 "type": "TRANSFORM",
-                "top": 672.4,
-                "left": 7812.4,
+                "top": 671.8,
+                "left": 6552.9,
                 "graph": {
                     "FORMULA62_copy0_copy0": {
                         "label": "Formula"
@@ -9515,21 +9790,21 @@
             "FILTER20_copy0_copy0": {
                 "label": "Filter 20 Copy",
                 "type": "FILTER",
-                "top": 532.1,
-                "left": 7812
+                "top": 531.8,
+                "left": 6552.9
             },
             "JOIN79": {
                 "label": "Join 79",
                 "type": "JOIN",
-                "top": 393,
-                "left": 7952
+                "top": 391.8,
+                "left": 6692.9
             },
             "TRANSFORM9_copy0": {
                 "label": "Transform_CSM - Cont..",
                 "description": "",
                 "type": "TRANSFORM",
-                "top": 392,
-                "left": 8512,
+                "top": 392.1,
+                "left": 7393,
                 "graph": {
                     "FORMULA50_copy0": {
                         "parameters": {
@@ -9634,11 +9909,103 @@
                         "target": "DROP_FIELDS1_copy1"
                     }
                 ]
+            },
+            "LOAD_DATASET29_copy0": {
+                "label": "Task Copy",
+                "type": "LOAD_DATASET",
+                "top": 1231.8,
+                "left": 6132.9,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "FILTER15_copy0": {
+                "label": "Filter 15 Copy",
+                "type": "FILTER",
+                "top": 811.8,
+                "left": 6132.9
+            },
+            "LOAD_DATASET34_copy0": {
+                "label": "User",
+                "type": "LOAD_DATASET",
+                "top": 1091.8,
+                "left": 6272.9,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "JOIN79_copy0": {
+                "label": "Join 79 Copy",
+                "type": "JOIN",
+                "top": 1091.8,
+                "left": 6132.9
+            },
+            "JOIN80": {
+                "label": "Join 80",
+                "type": "JOIN",
+                "top": 392,
+                "left": 6832
+            },
+            "TRANSFORM25": {
+                "label": "Transform 25",
+                "type": "TRANSFORM",
+                "top": 952.6,
+                "left": 6832,
+                "graph": {
+                    "DROP_FIELDS12": {
+                        "label": "Drop Columns"
+                    }
+                },
+                "connectors": []
+            },
+            "FILTER18_copy0": {
+                "label": "any open opp",
+                "description": "",
+                "type": "FILTER",
+                "top": 1652,
+                "left": 3611.4
+            },
+            "AGGREGATE14_copy0": {
+                "label": "Aggregate 14 Copy",
+                "type": "AGGREGATE",
+                "top": 1652,
+                "left": 3751.4,
+                "graph": {
+                    "EXTRACT7_copy0": null,
+                    "AGGREGATE15_copy0": null
+                },
+                "connectors": [
+                    {
+                        "source": "EXTRACT7_copy0",
+                        "target": "AGGREGATE15_copy0"
+                    }
+                ]
+            },
+            "TRANSFORM22_copy0": {
+                "label": "Transform 22 Copy",
+                "type": "TRANSFORM",
+                "top": 1652,
+                "left": 3891.4,
+                "graph": {
+                    "FORMULA64_copy0": {
+                        "parameters": {
+                            "type": "BASE_FORMULA_UI"
+                        },
+                        "label": "Formula"
+                    }
+                },
+                "connectors": []
+            },
+            "APPEND6": {
+                "label": "Append 6",
+                "type": "APPEND",
+                "top": 531,
+                "left": 3752
             }
         },
         "connectors": [
             {
-                "source": "JOIN79",
+                "source": "JOIN80",
                 "target": "JOIN74"
             },
             {
@@ -9782,7 +10149,7 @@
                 "target": "JOIN43"
             },
             {
-                "source": "APPEND5",
+                "source": "APPEND6",
                 "target": "JOIN43"
             },
             {
@@ -10066,20 +10433,12 @@
                 "target": "TRANSFORM16"
             },
             {
-                "source": "LOAD_DATASET29",
-                "target": "FILTER15"
-            },
-            {
                 "source": "LOAD_DATASET30",
                 "target": "FILTER16"
             },
             {
                 "source": "FILTER16",
                 "target": "AGGREGATE8"
-            },
-            {
-                "source": "FILTER15",
-                "target": "AGGREGATE10"
             },
             {
                 "source": "AGGREGATE10",
@@ -10111,10 +10470,6 @@
             },
             {
                 "source": "JOIN70",
-                "target": "JOIN72"
-            },
-            {
-                "source": "FILTER15",
                 "target": "JOIN72"
             },
             {
@@ -10182,10 +10537,6 @@
                 "target": "TRANSFORM21"
             },
             {
-                "source": "FILTER17",
-                "target": "FILTER18"
-            },
-            {
                 "source": "FILTER18",
                 "target": "AGGREGATE14"
             },
@@ -10228,10 +10579,6 @@
             {
                 "source": "AGGREGATE16",
                 "target": "TRANSFORM23"
-            },
-            {
-                "source": "FILTER19",
-                "target": "FILTER20"
             },
             {
                 "source": "FILTER20",
@@ -10284,6 +10631,66 @@
             {
                 "source": "TRANSFORM9_copy0",
                 "target": "OUTPUT0"
+            },
+            {
+                "source": "JOIN79_copy0",
+                "target": "FILTER15_copy0"
+            },
+            {
+                "source": "LOAD_DATASET29_copy0",
+                "target": "JOIN79_copy0"
+            },
+            {
+                "source": "LOAD_DATASET34_copy0",
+                "target": "JOIN79_copy0"
+            },
+            {
+                "source": "FILTER15_copy0",
+                "target": "AGGREGATE10"
+            },
+            {
+                "source": "FILTER15_copy0",
+                "target": "JOIN72"
+            },
+            {
+                "source": "JOIN79",
+                "target": "JOIN80"
+            },
+            {
+                "source": "TRANSFORM25",
+                "target": "JOIN80"
+            },
+            {
+                "source": "LOAD_DATASET32",
+                "target": "TRANSFORM25"
+            },
+            {
+                "source": "LOAD_DATASET18",
+                "target": "FILTER18"
+            },
+            {
+                "source": "LOAD_DATASET18",
+                "target": "FILTER20"
+            },
+            {
+                "source": "FILTER18_copy0",
+                "target": "AGGREGATE14_copy0"
+            },
+            {
+                "source": "AGGREGATE14_copy0",
+                "target": "TRANSFORM22_copy0"
+            },
+            {
+                "source": "LOAD_DATASET18",
+                "target": "FILTER18_copy0"
+            },
+            {
+                "source": "APPEND5",
+                "target": "APPEND6"
+            },
+            {
+                "source": "TRANSFORM22_copy0",
+                "target": "APPEND6"
             }
         ],
         "hiddenColumns": []
